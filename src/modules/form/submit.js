@@ -12,7 +12,7 @@ form.onsubmit = async (e) => {
     const name = clientName.value.trim()
 
     if(!name) {
-      alert("Favor digitar o nome para agendamento")
+      alert("Favor digitar seu nome para agendamento")
     }
 
     const hourSelected = document.querySelector(".hour-selected")

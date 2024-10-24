@@ -7,7 +7,7 @@ module.exports = {
   target: "web",
   mode: "development",
 
-  entry: path.resolve(__dirname, "src", "main.js"), //acessa o arquivo na raiz
+  entry: path.resolve(__dirname, "src", "main.js"), // Acessa o arquivo na raiz
   output: {
     filename: "main.js", // Define o nome do arquivo de saida
     path: path.resolve(__dirname, "dist") // devolve o arquivo da raiz, compilado
@@ -24,8 +24,8 @@ module.exports = {
  
   plugins: [
     new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, "index.html"),
-    favicon: path.resolve("src", "assets", "scissors.svg")
+    template: path.resolve(__dirname, "index.html"), // Importa o html
+    favicon: path.resolve("src", "assets", "scissors.svg") // Importa favIcon
   }),
 
   new CopyWebpackPlugin({

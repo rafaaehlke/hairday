@@ -1,7 +1,7 @@
 {
   "name": "hairday",
-  "description": "Aplicação de agendamentos para Barbearias.",
-  "author": "Rafael Ehlke e Rocketseat!",
+  "description": "Página web de agendamentos para Barbearias.",
+  "author": "Rafael Ehlke & Rocketseat!",
   "scripts": {
     "server": "json-server --watch server.json --port 3333",
     "build": "webpack",
