@@ -1,21 +1,29 @@
 import { openingHours } from "../../utils/opening-hours.js"
 import dayjs from "dayjs"
-import { hoursClick } from "./hours-click.js" 
+import { hoursClick } from "./hours-click.js"
 
 const hours = document.getElementById("hours")
 
-export function hoursLoad({ date }) {
+export function hoursLoad({ date, dailySchedules }) {
 
   hours.innerHTML = ""
-  const opening = openingHours.map((hour) => {
+
+  const unavailableHours = dailySchedules.map((schedule) => 
+    dayjs(schedule.when).format("HH:mm")
+)
+
+const opening = openingHours.map((hour) => {
 
     const [scheduleHour] = hour.split(":")
 
     const isHourPast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs())
 
+    // const available = !unavailableHours.includes(hour) 
+     const available = !unavailableHours.includes(hour) && !isHourPast // adiciona e mantem os horarios que passaram indisponiveis 
+
     return ({
       hour,
-      available: !isHourPast
+      available,
     })
   })
 
@@ -29,9 +37,9 @@ export function hoursLoad({ date }) {
 
     li.textContent = hour
 
-    if (hour === "07:00") {
+    if (hour === "09:00") {
       hourHeaderAdd("Manhã")
-    }else if (hour === "13:30") {
+    } else if (hour === "13:30") {
       hourHeaderAdd("Tarde")
     } else if (hour === "18:00") {
       hourHeaderAdd("Noite")

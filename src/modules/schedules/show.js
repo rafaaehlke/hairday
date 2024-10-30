@@ -31,7 +31,7 @@ export function schedulesShow({ dailySchedules }) {
 
       item.append(time, name, cancelIcon)
 
-      const hour = dayjs(schedule.when).hour
+      const hour = dayjs(schedule.when).hour()
 
       if (hour <= 12) {
         periodMorning.appendChild(item)
